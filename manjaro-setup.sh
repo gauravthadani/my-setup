@@ -43,3 +43,29 @@ then
 	spack uninstall gh && spack install gh
 	echo ***********DONE************* 
 fi
+
+echo Installing go
+	rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
+echo Done
+
+
+echo Download MIRO
+ sudo snap install miro
+echo done
+
+
+echo Download sublime-text
+sudo snap install sublime-text --classic
+echo done
+
+echo Download rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo done
+
+echo Download rbenv
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+echo done
+
+echo Download postgres
+ sudo pacman -S postgresql
+echo done
