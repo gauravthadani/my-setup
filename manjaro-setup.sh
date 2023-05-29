@@ -11,15 +11,13 @@ pamac install caffeine-ng --no-config
 
 echo Installing aws-cli
 
-if ! command -v aws &> /dev/null
-then
+if ! command -v aws &>/dev/null; then
 	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 	unzip awscliv2.zip
 	sudo ./aws/install
 fi
 
-if ! command -v granted &> /dev/null
-then
+if ! command -v granted &>/dev/null; then
 	echo Installing Granted
 	curl -OL releases.commonfate.io/granted/v0.11.1/granted_0.11.1_linux_x86_64.tar.gz
 	sudo tar -zxvf ./granted_0.11.1_linux_x86_64.tar.gz -C /usr/local/bin/
@@ -27,8 +25,7 @@ then
 	echo ***********DONE*************
 fi
 
-if ! command -v spack &> /dev/null
-then
+if ! command -v spack &>/dev/null; then
 	echo Installing Spack
 	git clone -c feature.manyFiles=true https://github.com/spack/spack.git
 	./bin/spack install zlib
@@ -36,23 +33,19 @@ then
 	echo ***********DONE*************
 fi
 
-
-if ! command -v gh &> /dev/null
-then
+if ! command -v gh &>/dev/null; then
 	echo Installing GH client
 	spack uninstall gh && spack install gh
-	echo ***********DONE************* 
+	echo ***********DONE*************
 fi
 
 echo Installing go
-	rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
 echo Done
 
-
 echo Download MIRO
- sudo snap install miro
+sudo snap install miro
 echo done
-
 
 echo Download sublime-text
 sudo snap install sublime-text --classic
@@ -67,5 +60,5 @@ curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer
 echo done
 
 echo Download postgres
- sudo pacman -S postgresql
+sudo pacman -S postgresql
 echo done
