@@ -62,3 +62,8 @@ echo done
 echo Download postgres
 sudo pacman -S postgresql
 echo done
+
+
+echo Download pipewire
+pamac install manjaro-pipewire
+echo done
